@@ -9,12 +9,22 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components";
+import "./layout.css"
+
 import theme from "./theme";
 import Header from "./header"
-import "./layout.css"
+import { CentralColumn } from "./styles";
+
 
 const Footer = styled.footer`
   font-size: 0.5em;
+`
+
+const Body = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 2.7fr 0.1fr;
+  grid-template-areas: 70px 1fr 30px;
 `
 
 const Layout = ({ children }) => {
@@ -42,9 +52,11 @@ const Layout = ({ children }) => {
         >
           <main>{children}</main>
           <Footer>
-            © {new Date().getFullYear()}, Built with
-            Love on the internet <br />
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <CentralColumn>
+              © {new Date().getFullYear()}, Built with
+              Love on the internet <br />
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </CentralColumn>
           </Footer>
         </div>
       </>
