@@ -8,10 +8,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Header from "./header"
 import "./layout.css"
+
+const Footer = styled.footer`
+  font-size: 0.5em;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -37,11 +41,11 @@ const Layout = ({ children }) => {
           }}
         >
           <main>{children}</main>
-          <footer>
+          <Footer>
             © {new Date().getFullYear()}, Built with
-            {` `}
+            Love on the internet <br />
             <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          </Footer>
         </div>
       </>
     </ThemeProvider>
