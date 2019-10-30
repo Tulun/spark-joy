@@ -36,12 +36,15 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `
+  )
+
+  console.log('theme', theme)
 
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header palette="headings" siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: `0 auto`,
